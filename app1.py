@@ -11,6 +11,7 @@ from wordcloud import WordCloud,STOPWORDS
 nltk.download('stopwords') 
 import matplotlib.pyplot as plt
 import spacy
+nltk.download('wordnet')
 nlp = spacy.blank("en")
 stopwords = nltk.corpus.stopwords.words('english')
 ps = nltk.PorterStemmer()
