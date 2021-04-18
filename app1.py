@@ -8,6 +8,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 import string
 import pickle
 from wordcloud import WordCloud,STOPWORDS
+nltk.download('stopwords') 
 import matplotlib.pyplot as plt
 import spacy
 nlp = spacy.blank("en")
