@@ -32,25 +32,22 @@ def clean_text(text):
     text = " ".join([ps.stem(word) for word in tokens if word not in stopwords])
     return text
 try:   
-    loaded_vectorizer = open('vectorizer.pkl',mode="r", encoding='UTF8')
-    spam_vect= joblib.load(loaded_vectorizer)
-    loaded_model = open('classification.pkl',mode="r", encoding='UTF8')
-    rf_model = joblib.load(loaded_model)
-    gb_loaded_model =open('gb_classification.pkl',mode="r", encoding='UTF8')
-    gb_model = joblib.load(gb_loaded_model)
+    vectorizer = pickle.load(open("vectorizer.pkl", "rb"))
+    loaded_model = pickle.load(open('classification.pkl',"rb",))
+    gb_loaded_model =pickle.load(open('gb_classification.pkl',"rb"))
 except UnicodeDecodeError:
     pass
 
 def predict_category(text):
-    text = spam_vect.transform([text])
+    text = vectorizer.transform([text])
     text = text.toarray()
-    pred = rf_model.predict(text)
+    pred = loaded_model.predict(text)
     return pred
 
 def pred_cat(text):
-    text = loaded_vectorizer.transform([text])
+    text = vectorizer.transform([text])
     text = text.toarray()
-    pred = gb_model.predict(text)
+    pred = gb_loaded_model.predict(text)
     return pred 
 
 def cloud(text,min_font,max_font,bg_color,max_word):
