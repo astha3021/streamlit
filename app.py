@@ -8,11 +8,18 @@ import plotly.graph_objects as go
 
 
 st.title('Covid-19 India Cases')
+hide_streamlit_style = """
+                <style>
+                #MainMenu {visibility: hidden;}
+                footer {visibility: hidden;}
+                </style>
+                """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 st.write("It shows ***Coronavirus Cases*** in India")
 st.sidebar.title("Selector")
 image = Image.open("Coronavirus.jpg")
 st.image(image,use_column_width=True)
-st.markdown('<style>body{background-color: lightblue;}</style>',unsafe_allow_html=True)
+
 
 @st.cache
 def load_data():
