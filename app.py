@@ -6,7 +6,13 @@ import plotly.express as px
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 
-
+hide_streamlit_style = """
+                <style>
+                #MainMenu {visibility: hidden;}
+                footer {visibility: hidden;}
+                </style>
+                """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 st.title('Covid-19 India Cases')
 hide_streamlit_style = """
                 <style>
