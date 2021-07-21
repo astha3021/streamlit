@@ -62,6 +62,13 @@ def cloud(text,min_font,max_font,bg_color,max_word):
     st.pyplot()
     
 def main():
+    hide_streamlit_style = """
+                <style>
+                #MainMenu {visibility: hidden;}
+                footer {visibility: hidden;}
+                </style>
+                """
+    st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
     options = ['Prediction','NLP','WordCloud']
     choice = st.sidebar.selectbox('Choose one Actvity',options)
     if choice=='NLP':
